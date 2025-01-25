@@ -1,0 +1,15 @@
+FROM node:18
+
+# Establecer el directorio de trabajo
+WORKDIR /app
+
+# Copiar los archivos
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+# Exponer el puerto
+EXPOSE 3000
+
+# Comando para iniciar la app
+CMD ["npm", "run", "start:prod"]
